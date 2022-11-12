@@ -1,0 +1,40 @@
+﻿@model PersonaDTO
+@{
+    ViewData["Title"] = "AgregarPersonaForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+  <div class="card-header">
+      Agregar Persona
+  </div>
+  <div class="card-body">
+      <form asp-action = "AgregarPersona" asp-controller = "Persona" method = "post">
+          <div class ="mb-2">
+              <label class = "form-label">Nombre</label>
+              <input type="text" class="form-control form-check control-sm" asp-for="Nombre"/>
+          </div>
+          <div class ="mb-2">
+              <label class = "form-label">Apellido</label>
+              <input type="text" class="form-control form-check control-sm" asp-for="Apellido"/>
+          </div>
+          <div class ="mb-2">
+              <label class = "form-label">Edad</label>
+              <input type="text" class="form-control form-check control-sm" asp-for="Edad"/>
+          </div>
+          <div class ="mb-2">
+              <label class = "form-label">Distrito</label>
+              <input type="text" class="form-control form-check control-sm" asp-for="Distrito"/>
+          </div>
+          <div class ="mb-2">
+              <label class = "form-label">Id de Equipo</label>
+              <input type="text" class="form-control form-check control-sm" asp-for="IdEquipo"/>
+          </div>
+          <button type="submit" class="btn btn-info">Agregar persona</button>
+      </form>
+      <hr />
+      <a class="btn btn-outline-primary float-right" asp-action="Index">
+          Regresar
+      </a>
+  </div>
+</div>

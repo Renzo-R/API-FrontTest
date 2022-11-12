@@ -1,0 +1,51 @@
+﻿@model List<Equipo>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+  <div class="card-header">
+      Lista de Equipos
+  </div>
+  <div class="card-body">
+      <a asp-action = "AgregarEquipoForm" asp-controller="Equipo" class = "btn btn-success">Nuevo Equipo</a>
+      <a asp-action = "BuscarEquipo" asp-controller="Equipo" class = "btn btn-info">Buscar Equipo</a>
+      <hr/>
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>Nombre</th>
+                  <th>Color</th>
+                  <th>Descripcion</th>
+                  <th>Activo</th>
+                  <th>Id</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+                @foreach(var item in Model)
+                {
+                    if(true)//@item.Active)
+                    {
+                        string activo;
+                        if (item.Active) activo = "Si";
+                        else activo = "No";
+                        <tr>
+                        <td>@item.Nombre</td>
+                        <td>@item.Color</td>
+                        <td>@item.Descripcion</td>
+                        <td>@activo</td>
+                        <td>@item.Id</td>
+                        <td>
+                            <a asp-action = "EditarEquipoForm" asp-controller = "Equipo" asp-route-id = "@item.Id" class ="btn btn-primary btn-sm">Editar</a>
+                            <a asp-action = "EliminarEquipoForm" asp-controller = "Equipo" asp-route-id = "@item.Id" asp-route-nombre = "@item.Nombre" class ="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                    }  
+                }
+            </tbody>
+      </table>
+  </div>
+</div>
+<hr/>
+<a asp-action = "Index" asp-controller= "Home" class = "btn btn-success">Volver</a>

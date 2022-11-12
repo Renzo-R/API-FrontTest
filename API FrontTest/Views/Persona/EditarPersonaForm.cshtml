@@ -1,0 +1,41 @@
+﻿@model PersonaDTO
+@{
+    ViewData["Title"] = "EditarPersonaForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+  <div class="card-header">
+      Editar Persona
+  </div>
+  <div class="card-body">
+      <form asp-action = "EditarPersona" asp-controller = "Persona" method = "post">
+          <input type="hidden" id="id" name="id" value="@ViewBag.Id"/>
+          <div class ="mb-2">
+              <label asp-for="Nombre" class= "form-label">Nombre</label>
+              <input asp-for="Nombre" type="text" class="form-control form-check control-sm" />
+          </div>
+          <div class ="mb-2">
+              <label asp-for="Apellido" class = "form-label">Apellido</label>
+              <input asp-for="Apellido" type="text" class="form-control form-check control-sm" />
+          </div>
+          <div class ="mb-2">
+              <label asp-for= "Edad" class = "form-label">Edad</label>
+              <input asp-for= "Edad" type="text" class="form-control form-check control-sm" />
+          </div>
+          <div class ="mb-2">
+              <label asp-for="Distrito" class = "form-label">Distrito</label>
+              <input asp-for="Distrito" type="text" class="form-control form-check control-sm" />
+          </div>
+          <div class ="mb-2">
+              <label asp-for="IdEquipo" class = "form-label">Id de Equipo</label>
+              <input asp-for="IdEquipo" type="text" class="form-control form-check control-sm" />
+          </div>
+          <button type="submit" class="btn btn-info">Guardar Cambios</button>
+      </form>
+      <hr />
+      <a class="btn btn-outline-primary float-right" asp-action="Index">
+          Regresar
+      </a>
+  </div>
+</div>

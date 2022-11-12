@@ -1,0 +1,14 @@
+﻿@model List<Persona>
+
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Administrar Personas y Equipos</h1>
+    <hr/>
+    <a asp-action = "ListaPersonas" asp-controller= "Home" class = "btn btn-success">Personas</a>
+    <a asp-action = "ListaEquipos" asp-controller= "Home" class = "btn btn-success">Equipos</a>
+</div>
+

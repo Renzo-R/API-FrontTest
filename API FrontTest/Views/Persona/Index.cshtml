@@ -1,0 +1,57 @@
+﻿@model List<Persona>
+
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+<div class="card">
+  <div class="card-header">
+      Lista de Personas
+  </div>
+  <div class="card-body">
+      <a asp-action = "AgregarPersonaForm" asp-controller="Persona" class = "btn btn-success">Nueva Persona</a>
+      <a asp-action = "BuscarPersona" asp-controller="Persona" class = "btn btn-info">Buscar Persona</a>
+      <hr/>
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Edad</th>
+                  <th>Id de Equipo</th>
+                  <th>Distrito</th>
+                  <th>Activo</th>
+                  <th>Id</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+                @foreach(var item in Model)
+                {
+                    if(true)//@item.Active)
+                    {
+                        string activo;
+                        if (item.Active) activo = "Si";
+                        else activo = "No";
+                        <tr>
+                        <td>@item.Nombre</td>
+                        <td>@item.Apellido</td>
+                        <td>@item.Edad</td>
+                        <td>@item.IdEquipo</td>
+                        <td>@item.Distrito</td>
+                        <td>@activo</td>
+                        <td>@item.Id</td>
+                        <td>
+                            <a asp-action = "EditarPersonaForm" asp-controller = "Persona" asp-route-id = "@item.Id" class ="btn btn-primary btn-sm">Editar</a>
+                            <a asp-action = "EliminarPersonaForm" asp-controller = "Persona" asp-route-id = "@item.Id" asp-route-nombre = "@item.Nombre @item.Apellido" class ="btn btn-danger btn-sm">Eliminar</a>
+                        </td>
+                    </tr>
+                    }  
+                }
+            </tbody>
+      </table>
+  </div>
+</div>
+<hr/>
+<a asp-action = "Index" asp-controller= "Home" class = "btn btn-success">Volver</a>

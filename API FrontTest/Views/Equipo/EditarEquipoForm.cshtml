@@ -1,0 +1,33 @@
+﻿@model EquipoDTO
+@{
+    ViewData["Title"] = "EditarEquipoForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+  <div class="card-header">
+      Editar Equipo
+  </div>
+  <div class="card-body">
+      <form asp-action = "EditarEquipo" asp-controller = "Equipo" method = "post">
+          <input type="hidden" id="id" name="id" value="@ViewBag.Id"/>
+          <div class ="mb-2">
+              <label asp-for="Nombre" class= "form-label">Nombre</label>
+              <input asp-for="Nombre" type="text" class="form-control form-check control-sm" />
+          </div>
+          <div class ="mb-2">
+              <label asp-for="Color" class = "form-label">Color</label>
+              <input asp-for="Color" type="text" class="form-control form-check control-sm" />
+          </div>
+          <div class ="mb-2">
+              <label asp-for= "Descripcion" class = "form-label">Descripcion</label>
+              <input asp-for= "Descripcion" type="text" class="form-control form-check control-sm" />
+          </div>
+          <button type="submit" class="btn btn-info">Guardar Cambios</button>
+      </form>
+      <hr />
+      <a class="btn btn-outline-primary float-right" asp-action="Index">
+          Regresar
+      </a>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@model Equipo
+@{
+    ViewData["Title"] = "GetEquipo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model != null)
+{
+    string activo;
+    if (@Model.Active) activo = "Si";
+    else activo = "No";
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            Detalle de Equipo
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">@Model.Nombre</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Color:  @Model.Color</li>
+            <li class="list-group-item">Descripcion: @Model.Descripcion</li>
+            <li class="list-group-item">Activo: @activo</li>
+        </ul>
+    </div>
+}
+else
+{
+    <div class="alert alert-primary" role="alert">
+        No se ha encontrado el Equipo
+    </div>
+}
+
+<hr/>
+
+<a class="btn btn-outline-primary float-right" asp-action="BuscarEquipo">
+    Regresar
+</a>
+
+
+
+

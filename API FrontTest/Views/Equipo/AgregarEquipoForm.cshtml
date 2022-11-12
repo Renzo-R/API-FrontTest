@@ -1,0 +1,33 @@
+﻿@model EquipoDTO
+@{
+    ViewData["Title"] = "AgregarEquipoForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+  <div class="card-header">
+      Agregar Equipo
+  </div>
+  <div class="card-body">
+      <form asp-action = "AgregarEquipo" asp-controller = "Equipo" method = "post">
+          <div class ="mb-2">
+              <label class = "form-label">Nombre</label>
+              <input type="text" class="form-control form-check control-sm" asp-for="Nombre"/>
+          </div>
+          <div class ="mb-2">
+              <label class = "form-label">Color</label>
+              <input type="text" class="form-control form-check control-sm" asp-for="Color"/>
+          </div>
+          <div class ="mb-2">
+              <label class = "form-label">Descripcion</label>
+              <input type="text" class="form-control form-check control-sm" asp-for="Descripcion"/>
+          </div>
+
+          <button type="submit" class="btn btn-info">Agregar Equipo</button>
+      </form>
+      <hr />
+      <a class="btn btn-outline-primary float-right" asp-action="Index">
+          Regresar
+      </a>
+  </div>
+</div>

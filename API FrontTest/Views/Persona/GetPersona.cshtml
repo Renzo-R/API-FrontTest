@@ -1,0 +1,42 @@
+﻿@model Persona
+@{
+    ViewData["Title"] = "GetPersona";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model != null)
+{
+    string activo;
+    if (@Model.Active) activo = "Si";
+    else activo = "No";
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            Detalle de Persona
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">@Model.Nombre @Model.Apellido</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Id de equipo: @Model.IdEquipo</li>
+            <li class="list-group-item">Distrito:  @Model.Distrito</li>
+            <li class="list-group-item">Edad: @Model.Edad</li>
+            <li class="list-group-item">Activo: @activo</li>
+        </ul>
+    </div>
+}
+else
+{
+    <div class="alert alert-primary" role="alert">
+        No se ha encontrado a la persona
+    </div>
+}
+
+<hr/>
+
+<a class="btn btn-outline-primary float-right" asp-action="BuscarPersona">
+    Regresar
+</a>
+
+
+
+

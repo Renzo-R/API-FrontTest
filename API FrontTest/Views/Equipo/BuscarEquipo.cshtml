@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "BuscarEquipo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+  <div class="card-header">
+      Buscar Equipo por Id
+  </div>
+  <div class="card-body">
+      <form asp-action = "GetEquipo" asp-controller = "Equipo">
+          <input type="text" id="id" name="id" class ="form-control form-control-sm" />
+          <button type="submit" class="btn btn-light">Buscar</button>
+      </form>
+      
+  </div>
+</div>
+
+<hr/>
+
+<a class="btn btn-outline-primary float-right" asp-action="Index">
+    Regresar a Lista
+</a>
+
